@@ -1,6 +1,6 @@
 # Java-hexagonal-architecture-example
 
-Aqui vai um exemplo básico de uma arquitetura hexagonal com três adaptadores em Java usando um projeto de bootstrap para inicialização rápida. Vou focar em um caso simples de uma aplicação de cadastro de usuários, onde temos:
+Um exemplo básico de uma arquitetura hexagonal com três adaptadores em Java usando um projeto de bootstrap para inicialização rápida. Vou focar em um caso simples de uma aplicação de cadastro de usuários, onde temos:
 
 1. Core Domain (Hexágono): As regras de negócio, interfaces e casos de uso.
 
@@ -17,24 +17,30 @@ Aqui vai um exemplo básico de uma arquitetura hexagonal com três adaptadores e
 ├── adapters
 │   └── inbound
 │       └── rest
-│           └── UserController.java // Controller com operações CRUD
+│           └── UserController.java
 │   └── outbound
 │       └── database
-│           └── UserRepositoryImpl.java // *Removido* já que o JpaRepository gerencia isso
+│           └── UserRepositoryImpl.java
 │       └── message
-│           └── KafkaProducer.java  // Produtor de mensagens Kafka (opcional)
+│           └── KafkaProducer.java
 ├── application
 │   └── ports
-│       └── input
-│           └── RegisterUserUseCase.java  // Port de entrada para registro de usuário
+│       ├── input
+│       │   ├── RegisterUserUseCase.java
+│       │   ├── UpdateUserUseCase.java
+│       │   ├── DeleteUserUseCase.java
+│       │   └── GetUserUseCase.java
 │       └── output
-│           └── UserRepository.java // Port de saída com JpaRepository para PostgreSQL
+│           └── UserRepository.java
 ├── core
 │   └── domain
-│       └── User.java               // Entidade User
+│       └── User.java
 │   └── usecase
-│       └── RegisterUser.java       // Caso de uso: RegisterUser
-├── Application.java                // Classe principal do Spring Boot
-└── pom.xml                         // Configurações do Maven e dependências
+│       ├── RegisterUser.java
+│       ├── UpdateUser.java
+│       ├── DeleteUser.java
+│       └── GetUser.java
+├── Application.java
+└── pom.xml
 
 ```
