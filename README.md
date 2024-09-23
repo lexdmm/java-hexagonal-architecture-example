@@ -14,26 +14,27 @@ Aqui vai um exemplo básico de uma arquitetura hexagonal com três adaptadores e
 ### Estrutura do Projeto
 ```
 /src
-├── core
-│   └── domain
-│       └── User.java
-│   └── usecase
-│       └── RegisterUser.java
-├── application
-│   └── ports
-│       └── input
-│           └── RegisterUserUseCase.java
-│       └── output
-│           └── UserRepository.java
 ├── adapters
 │   └── inbound
 │       └── rest
-│           └── UserController.java
+│           └── UserController.java // Controller com operações CRUD
 │   └── outbound
 │       └── database
-│           └── UserRepositoryImpl.java
+│           └── UserRepositoryImpl.java // *Removido* já que o JpaRepository gerencia isso
 │       └── message
-│           └── KafkaProducer.java
-├── Application.java
-└── pom.xml
+│           └── KafkaProducer.java  // Produtor de mensagens Kafka (opcional)
+├── application
+│   └── ports
+│       └── input
+│           └── RegisterUserUseCase.java  // Port de entrada para registro de usuário
+│       └── output
+│           └── UserRepository.java // Port de saída com JpaRepository para PostgreSQL
+├── core
+│   └── domain
+│       └── User.java               // Entidade User
+│   └── usecase
+│       └── RegisterUser.java       // Caso de uso: RegisterUser
+├── Application.java                // Classe principal do Spring Boot
+└── pom.xml                         // Configurações do Maven e dependências
+
 ```
