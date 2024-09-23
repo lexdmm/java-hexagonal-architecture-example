@@ -2,7 +2,7 @@ package com.lex.hexagonal_architecture.adapters.inbound.rest;
 
 import java.util.List;
 import java.util.Optional;
-
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import com.lex.hexagonal_architecture.application.ports.input.DeleteUserUseCase;
@@ -33,8 +33,8 @@ public class UserController {
   }
 
   @PostMapping
-  public void save(@RequestBody UserDTO user) {
-    this.registerUserUseCase.saveUser(user);
+  public User save(@RequestBody UserDTO user) {
+    return this.registerUserUseCase.saveUser(user);
   }
 
   @PutMapping("/{id}")
@@ -52,7 +52,7 @@ public class UserController {
     return this.getUserUseCase.getUserById(id);
   }
 
-  @GetMapping("/all")
+  @GetMapping
   public List<User> getAllUsers() {
     return this.getUsersUseCase.getAllUsers();
   }

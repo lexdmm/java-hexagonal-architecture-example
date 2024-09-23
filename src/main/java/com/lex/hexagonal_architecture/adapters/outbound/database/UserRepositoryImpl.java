@@ -2,6 +2,7 @@ package com.lex.hexagonal_architecture.adapters.outbound.database;
 
 import com.lex.hexagonal_architecture.application.ports.output.UserRepository;
 import com.lex.hexagonal_architecture.core.domain.User;
+import com.lex.hexagonal_architecture.dto.UserDTO;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -51,6 +52,6 @@ public class UserRepositoryImpl implements UserRepository {
 
   @Override
   public List<User> findAll() {
-    return this.entityManager.createQuery("SELECT u FROM user u", User.class).getResultList();
+    return this.entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
   }
 }

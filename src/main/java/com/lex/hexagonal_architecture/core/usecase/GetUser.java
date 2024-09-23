@@ -1,9 +1,7 @@
 package com.lex.hexagonal_architecture.core.usecase;
 
 import java.util.Optional;
-
 import org.springframework.stereotype.Service;
-
 import com.lex.hexagonal_architecture.application.ports.input.GetUserUseCase;
 import com.lex.hexagonal_architecture.application.ports.output.UserRepository;
 import com.lex.hexagonal_architecture.core.domain.User;

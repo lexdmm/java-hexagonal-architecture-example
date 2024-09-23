@@ -1,7 +1,6 @@
 package com.lex.hexagonal_architecture.core.usecase;
 
 import org.springframework.stereotype.Service;
-
 import com.lex.hexagonal_architecture.application.ports.input.DeleteUserUseCase;
 import com.lex.hexagonal_architecture.application.ports.output.UserRepository;
 
