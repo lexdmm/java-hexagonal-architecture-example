@@ -13,7 +13,7 @@ Um exemplo básico de uma arquitetura hexagonal com três adaptadores em Java us
 
 ### Estrutura do Projeto
 ```
-/src
+/src/main/java/com/lex/hexagonal_architecture
 ├── adapters
 │   └── inbound
 │       └── rest
