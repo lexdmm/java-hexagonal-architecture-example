@@ -1,4 +1,4 @@
-# Java-hexagonal-architecture-example
+# Java-hexagonal-architecture-kafka-example
 
 Um exemplo básico de uma arquitetura hexagonal com três adaptadores em Java usando um projeto de bootstrap para inicialização rápida. Vou focar em um caso simples de uma aplicação de cadastro de usuários, onde temos:
 
